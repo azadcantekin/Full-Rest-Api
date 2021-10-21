@@ -11,7 +11,7 @@ import kodlama.io.hrms.business.abstracts.JobPositionService;
 import kodlama.io.hrms.entities.concretes.JobPosition;
 
 @RestController
-@RequestMapping
+@RequestMapping("/api/jobs")
 public class JobPositionController {
 
 	private JobPositionService jobPositionService;
@@ -22,9 +22,9 @@ public class JobPositionController {
 		this.jobPositionService = jobPositionService;
 	}
 	
-	@GetMapping("/api/jobs/getall")
+	@GetMapping("/getall")
 	public List<JobPosition> getAll(){
 		return this.jobPositionService.getAll();
-	};
+	}
 	
 }
