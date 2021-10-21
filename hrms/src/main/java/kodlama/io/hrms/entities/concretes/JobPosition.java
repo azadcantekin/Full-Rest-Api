@@ -14,9 +14,9 @@ public class JobPosition {
 	@Id
 	@GeneratedValue
 	@Column(name="id")
-	int id ;
+	private int id ;
 	@Column(name="job_title")
-	String jobTitle;
+	private String jobTitle;
 	
 	
 	public JobPosition() {
