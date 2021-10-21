@@ -15,18 +15,18 @@ public class JobPosition {
 	@GeneratedValue
 	@Column(name="id")
 	int id ;
-	@Column(name="position")
-	String name;
+	@Column(name="job_title")
+	String jobTitle;
 	
 	
 	public JobPosition() {
 	
 	}
 	
-	public JobPosition(int id, String name) {
+	public JobPosition(int id, String jobTitle) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.jobTitle = jobTitle;
 	}
 
 
