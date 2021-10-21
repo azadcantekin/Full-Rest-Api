@@ -5,10 +5,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name="job_position")
 public class JobPosition {
 	@Id
@@ -19,15 +23,7 @@ public class JobPosition {
 	private String jobTitle;
 	
 	
-	public JobPosition() {
 	
-	}
-	
-	public JobPosition(int id, String jobTitle) {
-		super();
-		this.id = id;
-		this.jobTitle = jobTitle;
-	}
 
 
 	
