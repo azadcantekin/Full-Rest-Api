@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlama.io.hrms.business.abstracts.JobPositionService;
+import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.entities.concretes.JobPosition;
 
 @RestController
@@ -23,8 +24,8 @@ public class JobPositionController {
 	}
 	
 	@GetMapping("/getall")
-	public List<JobPosition> getAll(){
-		return this.jobPositionService.getAll();
+	public DataResult< List<JobPosition>> getAll(){
+		return this.jobPositionService.getall();
 	}
 	
 }
