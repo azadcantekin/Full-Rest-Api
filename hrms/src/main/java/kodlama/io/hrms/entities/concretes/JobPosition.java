@@ -14,13 +14,13 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="jobposition")
+@Table(name="job_position")
 public class JobPosition {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id ;
-	@Column(name="job_title")
+	@Column(name="jobtitle", unique=true)
 	private String jobTitle;
 	
 	
