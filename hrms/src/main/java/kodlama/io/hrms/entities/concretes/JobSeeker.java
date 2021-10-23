@@ -23,15 +23,18 @@ public class JobSeeker {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	@NotNull
 	private int id;
-	@Column(name="first_name" , nullable=false )
+	@NotNull
+	@Column(name="first_name"  )
 	private String firstName;
-	@Column(name="last_name" , nullable=false)
+	@NotNull
+	@Column(name="last_name")
 	private String lastName;
-	@Column(name="national_id" , nullable=false )
+	@NotNull
+	@Column(name="national_id")
 	private String nationalId;
-	@Column(name="birth_date" , nullable=false )
+	@NotNull
+	@Column(name="birth_date")
 	private String birthDate;
 	
 	
