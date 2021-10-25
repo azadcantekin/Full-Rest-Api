@@ -24,13 +24,13 @@ public class Employer {
 	@Column(name="id")
 	private int id;
 	@NotNull
-	@Column(name="company_name", nullable=false)
+	@Column(name="company_name")
 	private String companyName;
 	@NotNull
-	@Column(name="web_site", nullable=false)
+	@Column(name="web_site")
 	private String webSite;
 	@NotNull
-	@Column(name="phone_number" , nullable=false)
+	@Column(name="phone_number" )
 	private String phoneNumber;
 	
 	
