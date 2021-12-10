@@ -11,6 +11,7 @@ import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.core.utilities.results.SuccessDataResult;
 import kodlama.io.hrms.core.utilities.results.SuccessResult;
 import kodlama.io.hrms.dataAccess.abstracts.EmployerDao;
+import kodlama.io.hrms.entities.concretes.Advertisement;
 import kodlama.io.hrms.entities.concretes.Employer;
 
 @Service
@@ -35,5 +36,7 @@ public class EmployerManager implements EmployerService {
 		this.employerDao.save(employer);
 		return new SuccessResult("Employer has been added .");
 	}
+
+	
 
 }
