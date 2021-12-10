@@ -11,18 +11,48 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Table(name="job_position", uniqueConstraints={@UniqueConstraint(columnNames ={"job_title"})})
+@Table(name="job_position")
 public class JobPosition {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id ;
+	@Column(name="job_position_id")
+	private Long jobPositionId ;
 	@Column(name="job_title")
 	private String jobTitle;
+	
+	
+	
+	public JobPosition(Long jobPositionId, String jobTitle) {
+		super();
+		this.jobPositionId = jobPositionId;
+		this.jobTitle = jobTitle;
+	}
+
+
+
+	public Long getJobPositionId() {
+		return jobPositionId;
+	}
+
+
+
+	public void setJobPositionId(Long jobPositionId) {
+		this.jobPositionId = jobPositionId;
+	}
+
+
+
+	public String getJobTitle() {
+		return jobTitle;
+	}
+
+
+
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
+	}
+	
 	
 	
 }
