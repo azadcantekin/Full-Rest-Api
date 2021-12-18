@@ -1,18 +1,20 @@
 package kodlama.io.hrms.entities.concretes;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public class SystemPersonalVerification {
+import javax.persistence.*;
+
+@Entity
+@Table(name = "system_personal_verification")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class SystemPersonalVerification extends EntityWithUUID {
 
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+
 	@Column(name="is_verficate")
 	private boolean isVerficate;
 	@ManyToOne

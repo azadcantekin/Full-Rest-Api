@@ -5,12 +5,12 @@ import java.util.List;
 
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
-import kodlama.io.hrms.entities.concretes.Advertisement;
+import kodlama.io.hrms.entities.dto.AdvertisementModel;
 
 public interface AdvertisementService {
 
-	Result addAdvertisement(Advertisement advertisement);
-	DataResult<List<Advertisement>> getAll();
-	List<Advertisement> findAllByIsActiveTrue();	
+	Result addAdvertisement(AdvertisementModel advertisementModel);
+	DataResult<List<AdvertisementModel>> getAll();
+	List<AdvertisementModel> findAllByIsActiveTrue();
 		
 }
