@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
 @Table(name = "job_seeker")
 @Data
@@ -36,6 +37,7 @@ public class JobSeeker extends EntityWithUUID {
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "user_id")
     private User user;
+
 
 
 }
