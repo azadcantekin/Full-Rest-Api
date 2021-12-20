@@ -15,6 +15,9 @@ import lombok.NoArgsConstructor;
 public class SystemWorker extends EntityWithUUID{
 
 
+    private static final long serialVersionUID = -425910591133196034L;
+
+
     @Column(name = "first_name", nullable = false)
     private String firstName;
     @Column(name = "last_name", nullable = false)

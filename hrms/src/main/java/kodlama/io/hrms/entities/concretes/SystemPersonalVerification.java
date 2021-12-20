@@ -13,7 +13,9 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class SystemPersonalVerification extends EntityWithUUID {
 
-	
+
+	private static final long serialVersionUID = -2515734695814161799L;
+
 
 	@Column(name="is_verficate")
 	private boolean isVerficate;

@@ -17,6 +17,9 @@ import javax.persistence.Table;
 
 public class SocialMedia extends EntityWithUUID{
 
+    private static final long serialVersionUID = 3093772082455027744L;
+
+
     private String mediaName;
     private String uri;
     @ManyToOne

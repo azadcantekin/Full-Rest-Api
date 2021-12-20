@@ -14,6 +14,9 @@ import java.util.Date;
 @NoArgsConstructor
 public class School extends EntityWithUUID {
 
+    private static final long serialVersionUID = -5066601000657948358L;
+
+
     private String schoolName;
     private String address;
     private String phoneNumber;

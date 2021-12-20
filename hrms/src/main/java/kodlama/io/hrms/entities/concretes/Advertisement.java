@@ -21,6 +21,9 @@ import lombok.NoArgsConstructor;
 public class Advertisement extends EntityWithUUID{
 
 
+	private static final long serialVersionUID = 3757831847793413617L;
+
+
 	@Column(name="definition")
 	@NotBlank
 	@NotNull

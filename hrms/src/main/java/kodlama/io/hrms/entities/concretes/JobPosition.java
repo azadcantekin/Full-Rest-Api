@@ -13,6 +13,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class JobPosition  extends EntityWithUUID{
 
+	private static final long serialVersionUID = -1153823451786761572L;
+
+
 	@Column(name="job_title")
 	private String jobTitle;
 

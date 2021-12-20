@@ -16,6 +16,8 @@ import javax.persistence.Table;
 public class City extends EntityWithUUID {
 
 
+	private static final long serialVersionUID = 4682683801732359339L;
+
 	@Column(name="name")
 	private String name;
 

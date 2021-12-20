@@ -16,6 +16,7 @@ import java.util.UUID;
 public class EntityWithUUID implements Serializable {
 
 
+    private static final long serialVersionUID = 3110262183799511275L;
 
     @Id
     @Type(type = "pg-uuid")

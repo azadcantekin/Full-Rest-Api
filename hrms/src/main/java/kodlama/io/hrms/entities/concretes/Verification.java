@@ -19,6 +19,9 @@ import lombok.NoArgsConstructor;
 public class Verification extends EntityWithUUID{
 
 
+    private static final long serialVersionUID = 3397083442024484678L;
+
+
     @Column(name = "is_verficate")
     private boolean isVerficate;
     @ManyToOne(cascade = {CascadeType.ALL})

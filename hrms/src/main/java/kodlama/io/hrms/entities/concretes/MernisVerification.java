@@ -19,6 +19,9 @@ import lombok.NoArgsConstructor;
 public class MernisVerification extends EntityWithUUID{
 
 
+	private static final long serialVersionUID = 5657625148459786407L;
+
+
 	@Column(name="is_verficate")
 	private boolean isVerficate;
 	@ManyToOne

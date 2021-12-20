@@ -13,6 +13,9 @@ import java.util.Date;
 @NoArgsConstructor
 public class Experience extends EntityWithUUID{
 
+    private static final long serialVersionUID = -5106394654719934343L;
+
+
     private String title;
     private String explanation;
     private Date startDate;

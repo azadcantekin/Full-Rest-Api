@@ -21,6 +21,9 @@ import lombok.NoArgsConstructor;
 public class JobSeeker extends EntityWithUUID {
 
 
+    private static final long serialVersionUID = -3483402176423640198L;
+
+
     @NotNull
     @Column(name = "first_name", nullable = false)
     private String firstName;

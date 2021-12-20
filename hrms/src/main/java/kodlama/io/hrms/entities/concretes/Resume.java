@@ -17,6 +17,8 @@ import java.util.Set;
 public class Resume extends  EntityWithUUID{
 
 
+    private static final long serialVersionUID = -2346768516203802329L;
+
 
     @OneToMany(mappedBy = "resume")
     private List<Experience>  experience;
