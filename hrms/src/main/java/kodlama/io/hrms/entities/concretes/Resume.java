@@ -24,8 +24,7 @@ public class Resume extends  EntityWithUUID{
     private List<Experience>  experience;
     @OneToMany(mappedBy = "resume")
     private List<School>  schools;
-    @OneToMany(mappedBy = "resume_id")
-    private List<SocialMedia> socialMedia;
+
 
 
 

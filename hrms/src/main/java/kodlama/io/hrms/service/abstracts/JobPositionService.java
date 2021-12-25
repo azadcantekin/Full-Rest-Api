@@ -1,4 +1,4 @@
-package kodlama.io.hrms.business.abstracts;
+package kodlama.io.hrms.service.abstracts;
 
 import java.util.List;
 import kodlama.io.hrms.core.utilities.results.DataResult;

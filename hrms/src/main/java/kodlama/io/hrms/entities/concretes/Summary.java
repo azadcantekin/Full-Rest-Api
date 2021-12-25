@@ -1,7 +1,5 @@
-package kodlama.io.hrms.entities;
+package kodlama.io.hrms.entities.concretes;
 
-import kodlama.io.hrms.entities.concretes.EntityWithUUID;
-import kodlama.io.hrms.entities.concretes.Resume;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +15,8 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Summary extends EntityWithUUID {
+
+    private static final long serialVersionUID = 8702116174178928842L;
 
     private String title;
     private String contents;

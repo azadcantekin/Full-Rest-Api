@@ -1,4 +1,4 @@
-package kodlama.io.hrms.business.mapper;
+package kodlama.io.hrms.service.mapper;
 
 
 import kodlama.io.hrms.core.mapper.concretes.BaseMapperImpl;
