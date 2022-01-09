@@ -1,7 +1,9 @@
-package kodlama.io.hrms.service.concretes;
+package kodlama.io.hrms.service.impl;
 
 import java.util.List;
 
+import kodlama.io.hrms.entities.dto.EmployerModel;
+import kodlama.io.hrms.service.mapper.EmployerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,7 @@ import kodlama.io.hrms.entities.concretes.Employer;
 public class EmployerManager implements EmployerService {
 
 	private EmployerDao employerDao;
+	private EmployerMapper mapper;
 	
 	@Autowired
 	public EmployerManager(EmployerDao employerDao) {
@@ -25,14 +28,14 @@ public class EmployerManager implements EmployerService {
 	}
 
 	@Override
-	public DataResult<List<Employer>> getall() {
+	public DataResult<List<Employer>> getAll() {
 		
 		return new SuccessDataResult<List<Employer>>(this.employerDao.findAll(), "All Employers has been listed .");
 	}
 
 	@Override
-	public Result add(Employer employer) {
-		this.employerDao.save(employer);
+	public Result add(EmployerModel employerModel) {
+		this.employerDao.save(mapper.checkAndConvertToEntity(employerModel));
 		return new SuccessResult("Employer has been added .");
 	}
 

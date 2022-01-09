@@ -2,6 +2,7 @@ package kodlama.io.hrms.entities.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import kodlama.io.hrms.entities.concretes.City;
+import kodlama.io.hrms.entities.concretes.Employer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,4 +22,5 @@ public class AdvertisementModel extends BaseDto{
     private int positionNumber;
     private boolean isActive;
     private Date lastApplicationDate;
+    private Employer employer;
 }

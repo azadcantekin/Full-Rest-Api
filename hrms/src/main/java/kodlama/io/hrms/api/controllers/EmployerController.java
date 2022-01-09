@@ -2,6 +2,7 @@ package kodlama.io.hrms.api.controllers;
 
 import java.util.List;
 
+import kodlama.io.hrms.entities.dto.EmployerModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,14 +26,14 @@ public class EmployerController {
 		this.employerService = employerService;
 	}
 	
-	@GetMapping("/getall")
+	@GetMapping("/get-all")
 	public DataResult<List<Employer>> getAll(){
-		return this.employerService.getall();
+		return this.employerService.getAll();
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody Employer employer) {
-		return this.employerService.add(employer);
+	public Result add(@RequestBody EmployerModel employerModel) {
+		return this.employerService.add(employerModel);
 		
 	}
 	

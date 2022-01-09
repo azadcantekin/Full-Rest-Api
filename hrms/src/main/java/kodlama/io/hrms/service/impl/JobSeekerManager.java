@@ -1,4 +1,4 @@
-package kodlama.io.hrms.service.concretes;
+package kodlama.io.hrms.service.impl;
 
 import java.util.List;
 

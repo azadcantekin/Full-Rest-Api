@@ -12,15 +12,17 @@ public class AdvertisementMapper extends BaseMapperImpl<Advertisement , Advertis
 
     @Override
     public Advertisement convertToEntity(AdvertisementModel advertisementModel) {
-       Advertisement advertisement = new Advertisement();
-       advertisement.setId(advertisementModel.getId());
-       advertisement.setActive(advertisementModel.isActive());
-       advertisement.setCity(advertisementModel.getCity());
-       advertisement.setDefinition(advertisement.getDefinition());
-       advertisement.setEmployer(advertisement.getEmployer());
-       advertisement.setLastApplicationDate(advertisementModel.getLastApplicationDate());
 
-        return advertisement;
+
+        return Advertisement.builder()
+                .positionNumber(advertisementModel.getPositionNumber())
+                .city(advertisementModel.getCity())
+                .definition(advertisementModel.getDefinition())
+                .isActive(advertisementModel.isActive())
+                .lastApplicationDate(advertisementModel.getLastApplicationDate())
+                .employer(advertisementModel.getEmployer())
+                .build()
+                ;
     }
 
     @Override
