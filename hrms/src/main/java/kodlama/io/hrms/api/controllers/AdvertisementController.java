@@ -34,11 +34,26 @@ public class AdvertisementController {
 		return this.advertisementService.getAll();
 	}
 	
-	@GetMapping("/get-all-active")
+	@GetMapping("/getAll-active")
 	public ResponseEntity<?> findAllByIsActiveTrue(){
-		return ResponseEntity.ok(this.advertisementService.findAllByIsActiveTrue());
+		return ResponseEntity.ok(this.advertisementService.findAllByActiveTrue());
 	}
 	
-	
+	@GetMapping("/getAll-by-date")
+	public ResponseEntity<?> findAllByOrderByLastApplicationDate(){
+		return ResponseEntity.ok(this.advertisementService.findAllByActiveTrueOrderByLastApplicationDate());
+	}
+
+	@GetMapping("getAll-by-company")
+	public ResponseEntity<?> findAllByCompanyName(@RequestParam String companyName){
+		return ResponseEntity.ok(this.advertisementService.findAllByCompanyName(companyName));
+	}
+
+	@PutMapping("/{id}/update-active")
+	public ResponseEntity<?> updateIsActive(@PathVariable String id , @RequestBody boolean active) throws Exception {
+		return ResponseEntity.ok(this.advertisementService.updateIsActive(id,active));
+	}
+
+
 
 }
