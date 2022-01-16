@@ -20,7 +20,8 @@ public class AdvertisementModel extends BaseDto{
     private String definition;
     private City city;
     private int positionNumber;
-    private boolean isActive;
+    private boolean active;
     private Date lastApplicationDate;
+    private String companyName;
     private Employer employer;
 }

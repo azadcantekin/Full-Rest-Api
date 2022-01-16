@@ -2,6 +2,8 @@ package kodlama.io.hrms.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 import kodlama.io.hrms.service.mapper.AdvertisementMapper;
 import kodlama.io.hrms.entities.dto.AdvertisementModel;
@@ -19,57 +21,82 @@ import kodlama.io.hrms.entities.concretes.Advertisement;
 
 
 @Service
-public class AdvertisementManager implements AdvertisementService{
-	
-	private final AdvertisementDao advertisementDao;
-	private final AdvertisementMapper advertisementMapper;
-	
+public class AdvertisementManager implements AdvertisementService {
 
-	@Autowired
-	public AdvertisementManager(AdvertisementDao advertisementDao, AdvertisementMapper advertisementMapper) {
-		this.advertisementDao = advertisementDao;
-		this.advertisementMapper = advertisementMapper;
-	}
+    private final AdvertisementDao advertisementDao;
+    private final AdvertisementMapper advertisementMapper;
 
 
-
-	@Override
-	public Result addAdvertisement(AdvertisementModel advertisementModel ) {
-		Advertisement entity = advertisementMapper.checkAndConvertToEntity(advertisementModel);
-		this.advertisementDao.save(entity);
-		return new SuccessResult("Data listelendi");
-	}
+    @Autowired
+    public AdvertisementManager(AdvertisementDao advertisementDao, AdvertisementMapper advertisementMapper) {
+        this.advertisementDao = advertisementDao;
+        this.advertisementMapper = advertisementMapper;
+    }
 
 
-
-	@Override
-	public DataResult<List<AdvertisementModel>> getAll() {
-		List<Advertisement> advertisementList = this.advertisementDao.findAll();
-		List<AdvertisementModel> advertisementModelList = new ArrayList<>();
-		for (Advertisement advertisement : advertisementList) {
-			advertisementModelList.add(advertisementMapper.checkAndConvertToDto(advertisement));
-		}
-
-		return new SuccessDataResult<>(advertisementModelList,"Data has been listed");
-	}
+    @Override
+    public Result addAdvertisement(AdvertisementModel advertisementModel) {
+        Advertisement entity = advertisementMapper.checkAndConvertToEntity(advertisementModel);
+        this.advertisementDao.save(entity);
+        return new SuccessResult("Data listelendi");
+    }
 
 
+    @Override
+    public DataResult<List<AdvertisementModel>> getAll() {
+        List<Advertisement> advertisementList = this.advertisementDao.findAll();
+        List<AdvertisementModel> advertisementModelList = new ArrayList<>();
+        for (Advertisement advertisement : advertisementList) {
+            advertisementModelList.add(advertisementMapper.checkAndConvertToDto(advertisement));
+        }
 
-	@Override
-	public List<AdvertisementModel> findAllByIsActiveTrue() {
-		List<Advertisement> advertisementList = advertisementDao.findAllByIsActiveTrue();
-		List<AdvertisementModel> advertisementModelList = new ArrayList<>();
-		for (Advertisement advertisement: advertisementList) {
-			advertisementModelList.add(advertisementMapper.checkAndConvertToDto(advertisement));
-		}
-		return advertisementModelList;
-	}
-
-
+        return new SuccessDataResult<>(advertisementModelList, "Data has been listed");
+    }
 
 
+    @Override
+    public List<AdvertisementModel> findAllByActiveTrue() {
+        List<Advertisement> advertisementList = advertisementDao.findAllByActiveTrue();
+        List<AdvertisementModel> advertisementModelList = new ArrayList<>();
+        for (Advertisement advertisement : advertisementList) {
+            advertisementModelList.add(advertisementMapper.checkAndConvertToDto(advertisement));
+        }
+        return advertisementModelList;
+    }
+
+    @Override
+    public List<AdvertisementModel> findAllByActiveTrueOrderByLastApplicationDate() {
+        List<Advertisement> advertisementList = advertisementDao.findAllByActiveTrueOrderByLastApplicationDate();
+        List<AdvertisementModel> advertisementModelList = new ArrayList<>();
+        for (Advertisement advertisement : advertisementList) {
+            advertisementModelList.add(advertisementMapper.checkAndConvertToDto(advertisement));
+        }
+        return advertisementModelList;
+    }
+
+    @Override
+    public AdvertisementModel updateIsActive(String id, boolean active) throws Exception {
+        Optional<Advertisement> advertisementOptional = Optional.of(advertisementDao.findById(UUID.fromString(id)).orElse(null));
+        if(!advertisementOptional.isPresent()){
+            throw new Exception();
+        }
+        Advertisement advertisement =   advertisementOptional.get();
+        advertisement.setActive(active);
+         this.advertisementDao.save(advertisement);
+         return advertisementMapper.checkAndConvertToDto(advertisement);
+    }
+
+    @Override
+    public List<AdvertisementModel> findAllByCompanyName(String companyName) {
+        List<Advertisement> advertisementList = advertisementDao.findAllByCompanyName(companyName);
+        List<AdvertisementModel> advertisementModelList = new ArrayList<>();
+        for (Advertisement advertisement: advertisementList
+             ) {
+         advertisementModelList.add(advertisementMapper.checkAndConvertToDto(advertisement));
+        }
+        return advertisementModelList;
+    }
 }
-
 
 
 

@@ -18,8 +18,9 @@ public class AdvertisementMapper extends BaseMapperImpl<Advertisement , Advertis
                 .positionNumber(advertisementModel.getPositionNumber())
                 .city(advertisementModel.getCity())
                 .definition(advertisementModel.getDefinition())
-                .isActive(advertisementModel.isActive())
+                .active(advertisementModel.isActive())
                 .lastApplicationDate(advertisementModel.getLastApplicationDate())
+                .companyName(advertisementModel.getCompanyName())
                 .employer(advertisementModel.getEmployer())
                 .build()
                 ;
@@ -29,7 +30,9 @@ public class AdvertisementMapper extends BaseMapperImpl<Advertisement , Advertis
     public AdvertisementModel convertToDto(Advertisement entity) {
         return AdvertisementModel.builder().positionNumber(entity.getPositionNumber())
                 .city(entity.getCity())
+                .active(entity.isActive())
                 .definition(entity.getDefinition())
+                .companyName(entity.getCompanyName())
                 .build()
                 ;
     }
