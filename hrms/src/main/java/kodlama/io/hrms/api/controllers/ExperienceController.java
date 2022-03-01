@@ -19,7 +19,7 @@ public class ExperienceController {
         this.experienceService = experienceService;
     }
 
-    @GetMapping
+    @GetMapping("get-by-date")
     public ResponseEntity<?> findAllByOrderByStartDateDesc(){
         return ResponseEntity.ok(this.experienceService.findAllByOrderByStartDateDesc());
     }

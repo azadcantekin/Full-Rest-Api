@@ -14,8 +14,8 @@ import org.springframework.data.jpa.repository.Query;
 public interface AdvertisementDao extends JpaRepository<Advertisement, UUID>{
 
 	 List<Advertisement> findAllByActiveTrue();
-	 List<Advertisement> findAllByActiveTrueOrderByLastApplicationDate();
-	 @Query("SELECT a FROM Advertisement a WHERE a.companyName =: companyName")
-	 List<Advertisement> findAllByCompanyName(String companyName);
+	List<Advertisement> findAllByActiveTrueOrderByLastApplicationDate();
+	@Query("SELECT a FROM Advertisement a WHERE a.companyName =: companyName")
+	List<Advertisement> findAllByCompanyName(String companyName);
 
 }

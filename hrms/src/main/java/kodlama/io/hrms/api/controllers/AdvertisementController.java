@@ -29,22 +29,23 @@ public class AdvertisementController {
 		return this.advertisementService.addAdvertisement(advertisementModel);
 		
 	}
+
 	@GetMapping("/getall")
 	public DataResult<List<AdvertisementModel>> getAll(){
 		return this.advertisementService.getAll();
 	}
 	
-	@GetMapping("/getAll-active")
+	@GetMapping("/get-all-active")
 	public ResponseEntity<?> findAllByIsActiveTrue(){
 		return ResponseEntity.ok(this.advertisementService.findAllByActiveTrue());
 	}
 	
-	@GetMapping("/getAll-by-date")
+	@GetMapping("/get-all-by-date")
 	public ResponseEntity<?> findAllByOrderByLastApplicationDate(){
 		return ResponseEntity.ok(this.advertisementService.findAllByActiveTrueOrderByLastApplicationDate());
 	}
 
-	@GetMapping("getAll-by-company")
+	@GetMapping("get-all-by-company")
 	public ResponseEntity<?> findAllByCompanyName(@RequestParam String companyName){
 		return ResponseEntity.ok(this.advertisementService.findAllByCompanyName(companyName));
 	}
