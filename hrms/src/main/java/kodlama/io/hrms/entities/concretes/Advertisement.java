@@ -27,17 +27,11 @@ public class Advertisement extends EntityWithUUID{
 
 
 	@Column(name="definition")
-	@NotBlank
-	@NotNull
 	private String definition;
 	@ManyToOne
 	@JoinColumn(name="city_id" )
-	@NotBlank
-	@NotNull
 	private City city;
 	@Column(name="position_number")
-	@NotBlank
-	@NotNull
 	private int positionNumber;
 	@Column(name="last_application_date")
 	private Date lastApplicationDate;
@@ -49,8 +43,11 @@ public class Advertisement extends EntityWithUUID{
 	@Column(name = "company_name")
 	private String companyName;
 
-	
-	
+	public boolean isActive() {
+		return active;
+	}
 
-	
+	public void setActive(boolean active) {
+		this.active = active;
+	}
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import kodlama.io.hrms.service.abstracts.JobPositionService;
+import kodlama.io.hrms.service.JobPositionService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.entities.concretes.JobPosition;
@@ -14,13 +14,11 @@ import kodlama.io.hrms.entities.concretes.JobPosition;
 @RequestMapping("/api/jobs")
 public class JobPositionController {
 
+	@Autowired
 	private JobPositionService jobPositionService;
 	
-	@Autowired
-	public JobPositionController(JobPositionService jobPositionService) {
-		super();
-		this.jobPositionService = jobPositionService;
-	}
+
+
 	
 	@GetMapping("/get-all")
 	public DataResult< List<JobPosition>> getAll(){

@@ -6,7 +6,7 @@ import kodlama.io.hrms.entities.dto.AdvertisementModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import kodlama.io.hrms.service.abstracts.AdvertisementService;
+import kodlama.io.hrms.service.AdvertisementService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 
@@ -16,13 +16,11 @@ import kodlama.io.hrms.core.utilities.results.Result;
 @RequestMapping("advertisement")
 public class AdvertisementController {
 
-	
+	@Autowired
 	private AdvertisementService advertisementService;
 
-	@Autowired
-	public AdvertisementController(AdvertisementService advertisementService) {
-		this.advertisementService = advertisementService;
-	}
+
+
 	
 	@PostMapping("/add")
 	public Result add(@RequestBody AdvertisementModel advertisementModel ) {

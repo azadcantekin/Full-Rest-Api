@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import kodlama.io.hrms.entities.concretes.JobPosition;
 
 @Repository
-public interface JobPositionDao extends JpaRepository<JobPosition, Integer>{
+public interface JobPositionRepo extends JpaRepository<JobPosition, Integer>{
 
 }

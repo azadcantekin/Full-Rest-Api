@@ -11,7 +11,7 @@ import kodlama.io.hrms.entities.concretes.Advertisement;
 import org.springframework.data.jpa.repository.Query;
 
 
-public interface AdvertisementDao extends JpaRepository<Advertisement, UUID>{
+public interface AdvertisementRepo extends JpaRepository<Advertisement, UUID>{
 
 	 List<Advertisement> findAllByActiveTrue();
 	List<Advertisement> findAllByActiveTrueOrderByLastApplicationDate();

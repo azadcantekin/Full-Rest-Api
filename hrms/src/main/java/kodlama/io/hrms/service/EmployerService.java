@@ -1,4 +1,4 @@
-package kodlama.io.hrms.service.abstracts;
+package kodlama.io.hrms.service;
 
 import java.util.List;
 

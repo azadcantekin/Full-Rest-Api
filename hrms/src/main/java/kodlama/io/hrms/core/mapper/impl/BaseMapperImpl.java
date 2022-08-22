@@ -1,6 +1,6 @@
-package kodlama.io.hrms.core.mapper.concretes;
+package kodlama.io.hrms.core.mapper.impl;
 
-import kodlama.io.hrms.core.mapper.abstracts.BaseMapper;
+import kodlama.io.hrms.core.mapper.BaseMapper;
 import kodlama.io.hrms.entities.concretes.EntityWithUUID;
 import kodlama.io.hrms.entities.dto.BaseDto;
 

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import kodlama.io.hrms.service.abstracts.EmployerService;
+import kodlama.io.hrms.service.EmployerService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.entities.concretes.Employer;
@@ -18,14 +18,11 @@ import kodlama.io.hrms.entities.concretes.Employer;
 @RequestMapping("/api/employer")
 public class EmployerController {
 
-	
+	@Autowired
 	private EmployerService employerService;
 
-	@Autowired
-	public EmployerController(EmployerService employerService) {
-		this.employerService = employerService;
-	}
-	
+
+
 	@GetMapping("/get-all")
 	public DataResult<List<Employer>> getAll(){
 		return this.employerService.getAll();

@@ -1,4 +1,4 @@
-package kodlama.io.hrms.core.mapper.abstracts;
+package kodlama.io.hrms.core.mapper;
 
 import kodlama.io.hrms.entities.concretes.EntityWithUUID;
 

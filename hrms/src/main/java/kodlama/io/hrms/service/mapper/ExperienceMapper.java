@@ -1,6 +1,6 @@
 package kodlama.io.hrms.service.mapper;
 
-import kodlama.io.hrms.core.mapper.concretes.BaseMapperImpl;
+import kodlama.io.hrms.core.mapper.impl.BaseMapperImpl;
 import kodlama.io.hrms.entities.concretes.Experience;
 import kodlama.io.hrms.entities.dto.ExperienceModel;
 import org.springframework.stereotype.Component;
