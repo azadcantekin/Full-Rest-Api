@@ -6,12 +6,20 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 
 @Entity
 @Table(name="users")
 @SuperBuilder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class User extends EntityWithUUID {
 
     private static final long serialVersionUID = -5007611868455170026L;
@@ -29,50 +37,6 @@ public class User extends EntityWithUUID {
     public User(String email, String password) {
         this.email = email;
         this.password = password;
-    }
-
-
-    public User() {
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public List<Employer> getEmployers() {
-        return employers;
-    }
-
-    public void setEmployers(List<Employer> employers) {
-        this.employers = employers;
-    }
-
-    public List<JobSeeker> getJobSeekers() {
-        return jobSeekers;
-    }
-
-    public void setJobSeekers(List<JobSeeker> jobSeekers) {
-        this.jobSeekers = jobSeekers;
-    }
-
-    public List<Verification> getVerifications() {
-        return verifications;
-    }
-
-    public void setVerifications(List<Verification> verifications) {
-        this.verifications = verifications;
     }
 
 

@@ -18,6 +18,8 @@ public class UserServiceImpl implements UserService {
     private UserRepo userRepo;
     private UserMapper userMapper;
 
+
+
     @Override
     public UserModel add(UserModel userModel) {
         this.userRepo.save(userMapper.checkAndConvertToEntity(userModel));

@@ -1,23 +1,19 @@
 package kodlama.io.hrms.entities.dto;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 
 @SuperBuilder
+@AllArgsConstructor
+@Getter
+@Setter
 public abstract class BaseDto {
 
     private String id;
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public BaseDto(String id) {
-        this.id = id;
-    }
 }

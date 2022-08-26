@@ -2,15 +2,16 @@ package kodlama.io.hrms.entities.concretes;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
 
 @Entity
 @Table(name="job_position")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class JobPosition  extends EntityWithUUID{
 
 	private static final long serialVersionUID = -1153823451786761572L;

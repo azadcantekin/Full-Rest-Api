@@ -12,7 +12,6 @@ import org.springframework.data.jpa.repository.Query;
 
 
 public interface AdvertisementRepo extends JpaRepository<Advertisement, UUID>{
-
 	 List<Advertisement> findAllByActiveTrue();
 	List<Advertisement> findAllByActiveTrueOrderByLastApplicationDate();
 	@Query("SELECT a FROM Advertisement a WHERE a.companyName =: companyName")

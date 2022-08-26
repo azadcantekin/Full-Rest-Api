@@ -1,8 +1,7 @@
 package kodlama.io.hrms.entities.concretes;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,6 +10,8 @@ import java.util.List;
 @Table(name="resume")
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class Resume extends  EntityWithUUID{
 
 
