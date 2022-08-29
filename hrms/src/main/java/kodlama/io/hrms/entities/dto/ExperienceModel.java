@@ -11,8 +11,6 @@ import java.util.Date;
 
 
 @SuperBuilder
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 public class ExperienceModel extends BaseDto{
@@ -24,4 +22,13 @@ public class ExperienceModel extends BaseDto{
     private Boolean isActive;
     private Resume resume;
 
+    public ExperienceModel(String id, String title, String explanation, Date startDate, Date endDate, Boolean isActive, Resume resume) {
+        super(id);
+        this.title = title;
+        this.explanation = explanation;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.isActive = isActive;
+        this.resume = resume;
+    }
 }

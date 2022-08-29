@@ -8,12 +8,13 @@ import lombok.experimental.SuperBuilder;
 
 
 @SuperBuilder
-@AllArgsConstructor
 @Getter
 @Setter
 public abstract class BaseDto {
 
     private String id;
 
-
+    public BaseDto(String id) {
+        this.id = id;
+    }
 }

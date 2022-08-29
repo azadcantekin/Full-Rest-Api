@@ -13,6 +13,10 @@ public class CityServiceImpl implements CityService {
     @Autowired
     private CityRepo cityRepo;
 
+    public CityServiceImpl(CityRepo cityRepo) {
+        this.cityRepo = cityRepo;
+    }
+
     @Override
     public List<City> getAllCities() {
         return this.cityRepo.findAll();

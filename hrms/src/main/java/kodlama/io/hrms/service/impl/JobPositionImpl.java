@@ -18,8 +18,8 @@ public class JobPositionImpl implements JobPositionService {
 
 	@Autowired
 	private JobPositionRepo jobPositionRepo;
+
 	public JobPositionImpl(JobPositionRepo jobPositionRepo) {
-		super();
 		this.jobPositionRepo = jobPositionRepo;
 	}
 	

@@ -8,8 +8,9 @@ import java.util.List;
 
 public interface UserService {
     List<UserModel> getAllUser();
-    UserModel add(UserModel userModel);
+    UserModel addUser(UserModel userModel);
     UserModel deleteUser(String id);
     UserModel findByEmail (String email);
+    UserModel selectExistEmail(String email);
 
 }

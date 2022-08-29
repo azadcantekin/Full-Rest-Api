@@ -1,5 +1,7 @@
 package kodlama.io.hrms.service;
 
+import kodlama.io.hrms.entities.concretes.User;
+import kodlama.io.hrms.entities.dto.UserModel;
 import kodlama.io.hrms.repo.UserRepo;
 import kodlama.io.hrms.service.impl.UserServiceImpl;
 import kodlama.io.hrms.service.mapper.UserMapper;
@@ -8,23 +10,28 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
 
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 class UserServiceImplTest {
+
     @Mock
     private UserRepo userRepo;
+    @Autowired
     private UserMapper userMapper;
-    private UserService underTest ;
-
+    private UserService underTest;
 
 
     @BeforeEach
     void setUp() {
-        underTest = new UserServiceImpl() ;
+        underTest = new UserServiceImpl(userRepo, userMapper);
     }
 
     @AfterEach
@@ -33,7 +40,21 @@ class UserServiceImplTest {
 
     @Test
     @Disabled
-    void add() {
+    void canAddUser() {
+        //given
+        User user = new User("tekin.act@gmail.com","123");
+        UserModel userModel = userMapper.checkAndConvertToDto(user);
+        //when
+        underTest.addUser(userModel);
+
+        //then
+        ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
+
+        verify(userRepo).save(userArgumentCaptor.capture());
+
+        User capturedUser = userArgumentCaptor.getValue();
+
+        assertThat(capturedUser).isEqualTo(user);
     }
 
     @Test

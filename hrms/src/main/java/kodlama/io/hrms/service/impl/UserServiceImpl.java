@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -19,9 +21,13 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
 
+    public UserServiceImpl(UserRepo userRepo, UserMapper userMapper) {
+        this.userRepo = userRepo;
+        this.userMapper = userMapper;
+    }
 
     @Override
-    public UserModel add(UserModel userModel) {
+    public UserModel addUser(UserModel userModel) {
         this.userRepo.save(userMapper.checkAndConvertToEntity(userModel));
         return  userModel;
     }
@@ -44,6 +50,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserModel findByEmail(String email) {
+        User user = userRepo.findByEmail(email);
+        UserModel userModel = userMapper.convertToDto(user);
+        return userModel;
+    }
+
+    @Override
+    public UserModel selectExistEmail(String email) {
         return null;
     }
 

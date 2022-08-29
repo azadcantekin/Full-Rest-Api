@@ -16,6 +16,10 @@ public class JobSeekerImpl implements JobSeekerService{
 	@Autowired
 	private JobSeekerRepo jobSeekerRepo;
 
+	public JobSeekerImpl(JobSeekerRepo jobSeekerRepo) {
+		this.jobSeekerRepo = jobSeekerRepo;
+	}
+
 	@Override
 	public DataResult<List<JobSeeker>> getAll() {
 		

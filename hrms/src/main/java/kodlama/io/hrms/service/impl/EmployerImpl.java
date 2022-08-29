@@ -15,30 +15,31 @@ import kodlama.io.hrms.core.utilities.results.SuccessResult;
 import kodlama.io.hrms.repo.EmployerRepo;
 import kodlama.io.hrms.entities.concretes.Employer;
 
+import javax.annotation.Resource;
+
 @Service
 public class EmployerImpl implements EmployerService {
 
-	private EmployerRepo employerRepo;
-	private EmployerMapper mapper;
-	
-	@Autowired
-	public EmployerImpl(EmployerRepo employerRepo) {
-		super();
-		this.employerRepo = employerRepo;
-	}
+    @Autowired
+    private EmployerRepo employerRepo;
+    private EmployerMapper mapper;
 
-	@Override
-	public DataResult<List<Employer>> getAll() {
-		
-		return new SuccessDataResult<List<Employer>>(this.employerRepo.findAll(), "All Employers has been listed .");
-	}
+    public EmployerImpl(EmployerRepo employerRepo, EmployerMapper mapper) {
+        this.employerRepo = employerRepo;
+        this.mapper = mapper;
+    }
 
-	@Override
-	public Result add(EmployerModel employerModel) {
-		this.employerRepo.save(mapper.checkAndConvertToEntity(employerModel));
-		return new SuccessResult("Employer has been added .");
-	}
+    @Override
+    public DataResult<List<Employer>> getAll() {
 
-	
+        return new SuccessDataResult<List<Employer>>(this.employerRepo.findAll(), "All Employers has been listed .");
+    }
+
+    @Override
+    public Result add(EmployerModel employerModel) {
+        this.employerRepo.save(mapper.checkAndConvertToEntity(employerModel));
+        return new SuccessResult("Employer has been added .");
+    }
+
 
 }
