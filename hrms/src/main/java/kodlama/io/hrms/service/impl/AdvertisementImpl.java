@@ -7,7 +7,6 @@ import java.util.UUID;
 
 import kodlama.io.hrms.service.mapper.AdvertisementMapper;
 import kodlama.io.hrms.entities.dto.AdvertisementModel;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +31,7 @@ public class AdvertisementImpl implements AdvertisementService {
         this.advertisementRepo = advertisementRepo;
         this.advertisementMapper = advertisementMapper;
     }
+
 
     @Override
     public Result addAdvertisement(AdvertisementModel advertisementModel) {

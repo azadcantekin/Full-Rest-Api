@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class CityServiceImpl implements CityService {
     @Autowired
-    private CityRepo cityRepo;
+    private final CityRepo cityRepo;
 
     public CityServiceImpl(CityRepo cityRepo) {
         this.cityRepo = cityRepo;

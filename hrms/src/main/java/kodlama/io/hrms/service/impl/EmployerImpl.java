@@ -21,8 +21,8 @@ import javax.annotation.Resource;
 public class EmployerImpl implements EmployerService {
 
     @Autowired
-    private EmployerRepo employerRepo;
-    private EmployerMapper mapper;
+    private final EmployerRepo employerRepo;
+    private final EmployerMapper mapper;
 
     public EmployerImpl(EmployerRepo employerRepo, EmployerMapper mapper) {
         this.employerRepo = employerRepo;

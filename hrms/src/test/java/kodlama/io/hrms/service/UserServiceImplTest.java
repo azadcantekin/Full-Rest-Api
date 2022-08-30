@@ -11,9 +11,9 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -24,7 +24,7 @@ class UserServiceImplTest {
 
     @Mock
     private UserRepo userRepo;
-    @Autowired
+   @InjectMocks
     private UserMapper userMapper;
     private UserService underTest;
 
@@ -40,7 +40,7 @@ class UserServiceImplTest {
 
     @Test
     @Disabled
-    void canAddUser() {
+    void canAddUser() throws Exception {
         //given
         User user = new User("tekin.act@gmail.com","123");
         UserModel userModel = userMapper.checkAndConvertToDto(user);

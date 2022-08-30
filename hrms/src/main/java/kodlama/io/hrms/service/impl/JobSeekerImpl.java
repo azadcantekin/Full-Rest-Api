@@ -14,7 +14,7 @@ import kodlama.io.hrms.entities.concretes.JobSeeker;
 @Service
 public class JobSeekerImpl implements JobSeekerService{
 	@Autowired
-	private JobSeekerRepo jobSeekerRepo;
+	private final JobSeekerRepo jobSeekerRepo;
 
 	public JobSeekerImpl(JobSeekerRepo jobSeekerRepo) {
 		this.jobSeekerRepo = jobSeekerRepo;

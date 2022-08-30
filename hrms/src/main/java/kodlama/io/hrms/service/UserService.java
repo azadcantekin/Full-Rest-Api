@@ -11,6 +11,5 @@ public interface UserService {
     UserModel addUser(UserModel userModel);
     UserModel deleteUser(String id);
     UserModel findByEmail (String email);
-    UserModel selectExistEmail(String email);
 
 }

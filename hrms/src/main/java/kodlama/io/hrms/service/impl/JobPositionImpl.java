@@ -17,7 +17,7 @@ import kodlama.io.hrms.entities.concretes.JobPosition;
 public class JobPositionImpl implements JobPositionService {
 
 	@Autowired
-	private JobPositionRepo jobPositionRepo;
+	private final JobPositionRepo jobPositionRepo;
 
 	public JobPositionImpl(JobPositionRepo jobPositionRepo) {
 		this.jobPositionRepo = jobPositionRepo;

@@ -14,8 +14,8 @@ import java.util.List;
 @Service
 public class ExperienceImpl implements ExperienceService {
     @Autowired
-    private ExperienceRepo experienceRepo;
-    private ExperienceMapper experienceMapper;
+    private final ExperienceRepo experienceRepo;
+    private final ExperienceMapper experienceMapper;
 
     public ExperienceImpl(ExperienceRepo experienceRepo, ExperienceMapper experienceMapper) {
         this.experienceRepo = experienceRepo;
