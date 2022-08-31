@@ -23,10 +23,11 @@ import kodlama.io.hrms.entities.concretes.Advertisement;
 @Service
 public class AdvertisementImpl implements AdvertisementService {
 
-    @Autowired
+
     private final AdvertisementRepo advertisementRepo;
     private final AdvertisementMapper advertisementMapper;
 
+    @Autowired
     public AdvertisementImpl(AdvertisementRepo advertisementRepo, AdvertisementMapper advertisementMapper) {
         this.advertisementRepo = advertisementRepo;
         this.advertisementMapper = advertisementMapper;
@@ -76,22 +77,22 @@ public class AdvertisementImpl implements AdvertisementService {
     @Override
     public AdvertisementModel updateIsActive(String id, boolean active) throws Exception {
         Optional<Advertisement> advertisementOptional = Optional.of(advertisementRepo.findById(UUID.fromString(id)).orElse(null));
-        if(!advertisementOptional.isPresent()){
+        if (!advertisementOptional.isPresent()) {
             throw new Exception();
         }
-        Advertisement advertisement =   advertisementOptional.get();
+        Advertisement advertisement = advertisementOptional.get();
         advertisement.setActive(active);
-         this.advertisementRepo.save(advertisement);
-         return advertisementMapper.checkAndConvertToDto(advertisement);
+        this.advertisementRepo.save(advertisement);
+        return advertisementMapper.checkAndConvertToDto(advertisement);
     }
 
     @Override
     public List<AdvertisementModel> findAllByCompanyName(String companyName) {
         List<Advertisement> advertisementList = advertisementRepo.findAllByCompanyName(companyName);
         List<AdvertisementModel> advertisementModelList = new ArrayList<>();
-        for (Advertisement advertisement: advertisementList
-             ) {
-         advertisementModelList.add(advertisementMapper.checkAndConvertToDto(advertisement));
+        for (Advertisement advertisement : advertisementList
+        ) {
+            advertisementModelList.add(advertisementMapper.checkAndConvertToDto(advertisement));
         }
         return advertisementModelList;
     }

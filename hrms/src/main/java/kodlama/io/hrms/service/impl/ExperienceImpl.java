@@ -13,10 +13,11 @@ import java.util.List;
 
 @Service
 public class ExperienceImpl implements ExperienceService {
-    @Autowired
+
     private final ExperienceRepo experienceRepo;
     private final ExperienceMapper experienceMapper;
 
+    @Autowired
     public ExperienceImpl(ExperienceRepo experienceRepo, ExperienceMapper experienceMapper) {
         this.experienceRepo = experienceRepo;
         this.experienceMapper = experienceMapper;

@@ -5,18 +5,23 @@ import kodlama.io.hrms.entities.dto.UserModel;
 import kodlama.io.hrms.repo.UserRepo;
 import kodlama.io.hrms.service.UserService;
 import kodlama.io.hrms.service.mapper.UserMapper;
+import org.hibernate.annotations.common.util.impl.LoggerFactory;
+import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Service
 public class UserServiceImpl implements UserService {
+
 
     @Autowired
     private final UserRepo userRepo;
     private final UserMapper userMapper;
+
 
     public UserServiceImpl(UserRepo userRepo, UserMapper userMapper) {
         this.userRepo = userRepo;
@@ -25,13 +30,13 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public UserModel addUser(UserModel userModel)  {
+    public UserModel addUser(UserModel userModel) {
         Boolean existEmail = userRepo.selectExistEmail(userModel.getEmail());
-        if (existEmail){
-        return null;
+        if (existEmail) {
+
         }
         userRepo.save(userMapper.checkAndConvertToEntity(userModel));
-        return  userModel;
+        return userModel;
     }
 
     @Override
@@ -44,7 +49,7 @@ public class UserServiceImpl implements UserService {
     public List<UserModel> getAllUser() {
         List<User> userList = userRepo.findAll();
         List<UserModel> userModelList = new ArrayList<>();
-        for(User user : userList){
+        for (User user : userList) {
             userModelList.add(userMapper.convertToDto(user));
         }
         return userModelList;

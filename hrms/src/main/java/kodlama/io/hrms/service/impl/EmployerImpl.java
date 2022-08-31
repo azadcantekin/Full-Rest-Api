@@ -20,10 +20,11 @@ import javax.annotation.Resource;
 @Service
 public class EmployerImpl implements EmployerService {
 
-    @Autowired
+
     private final EmployerRepo employerRepo;
     private final EmployerMapper mapper;
 
+    @Autowired
     public EmployerImpl(EmployerRepo employerRepo, EmployerMapper mapper) {
         this.employerRepo = employerRepo;
         this.mapper = mapper;

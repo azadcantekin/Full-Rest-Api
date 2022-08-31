@@ -16,23 +16,24 @@ import kodlama.io.hrms.entities.concretes.JobPosition;
 @Service
 public class JobPositionImpl implements JobPositionService {
 
-	@Autowired
-	private final JobPositionRepo jobPositionRepo;
 
-	public JobPositionImpl(JobPositionRepo jobPositionRepo) {
-		this.jobPositionRepo = jobPositionRepo;
-	}
-	
-	@Override
-	public DataResult<List<JobPosition>> getall() {
-	
-		return new SuccessDataResult<List<JobPosition>>(this.jobPositionRepo.findAll(),"Data has been listed .");
-	}
+    private final JobPositionRepo jobPositionRepo;
 
-	@Override
-	public Result add(JobPosition jobPosition) {
-		this.jobPositionRepo.save(jobPosition);
-		return new SuccessResult("Position has been added.");
-	}
+    @Autowired
+    public JobPositionImpl(JobPositionRepo jobPositionRepo) {
+        this.jobPositionRepo = jobPositionRepo;
+    }
+
+    @Override
+    public DataResult<List<JobPosition>> getall() {
+
+        return new SuccessDataResult<List<JobPosition>>(this.jobPositionRepo.findAll(), "Data has been listed .");
+    }
+
+    @Override
+    public Result add(JobPosition jobPosition) {
+        this.jobPositionRepo.save(jobPosition);
+        return new SuccessResult("Position has been added.");
+    }
 
 }

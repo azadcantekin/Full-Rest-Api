@@ -12,18 +12,19 @@ import kodlama.io.hrms.repo.JobSeekerRepo;
 import kodlama.io.hrms.entities.concretes.JobSeeker;
 
 @Service
-public class JobSeekerImpl implements JobSeekerService{
-	@Autowired
-	private final JobSeekerRepo jobSeekerRepo;
+public class JobSeekerImpl implements JobSeekerService {
 
-	public JobSeekerImpl(JobSeekerRepo jobSeekerRepo) {
-		this.jobSeekerRepo = jobSeekerRepo;
-	}
+    private final JobSeekerRepo jobSeekerRepo;
 
-	@Override
-	public DataResult<List<JobSeeker>> getAll() {
-		
-		return new SuccessDataResult<List<JobSeeker>>(this.jobSeekerRepo.findAll(), "Job seeker has been listed .");
-	}
+    @Autowired
+    public JobSeekerImpl(JobSeekerRepo jobSeekerRepo) {
+        this.jobSeekerRepo = jobSeekerRepo;
+    }
+
+    @Override
+    public DataResult<List<JobSeeker>> getAll() {
+
+        return new SuccessDataResult<List<JobSeeker>>(this.jobSeekerRepo.findAll(), "Job seeker has been listed .");
+    }
 
 }
