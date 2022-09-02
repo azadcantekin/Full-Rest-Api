@@ -1,4 +1,4 @@
-package kodlama.io.hrms.entities.concretes;
+package kodlama.io.hrms.entities.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;

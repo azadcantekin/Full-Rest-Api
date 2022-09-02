@@ -9,7 +9,7 @@ import kodlama.io.hrms.service.JobSeekerService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.SuccessDataResult;
 import kodlama.io.hrms.repo.JobSeekerRepo;
-import kodlama.io.hrms.entities.concretes.JobSeeker;
+import kodlama.io.hrms.entities.domain.JobSeeker;
 
 @Service
 public class JobSeekerImpl implements JobSeekerService {

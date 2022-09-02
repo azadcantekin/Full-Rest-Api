@@ -1,12 +1,13 @@
 package kodlama.io.hrms.service.impl;
 
-import kodlama.io.hrms.entities.concretes.User;
+import kodlama.io.hrms.core.utilities.results.DataResult;
+import kodlama.io.hrms.core.utilities.results.ErrorDataResult;
+import kodlama.io.hrms.core.utilities.results.SuccessDataResult;
+import kodlama.io.hrms.entities.domain.User;
 import kodlama.io.hrms.entities.dto.UserModel;
 import kodlama.io.hrms.repo.UserRepo;
 import kodlama.io.hrms.service.UserService;
 import kodlama.io.hrms.service.mapper.UserMapper;
-import org.hibernate.annotations.common.util.impl.LoggerFactory;
-import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,29 +19,38 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
 
-    @Autowired
     private final UserRepo userRepo;
     private final UserMapper userMapper;
 
-
+    @Autowired
     public UserServiceImpl(UserRepo userRepo, UserMapper userMapper) {
         this.userRepo = userRepo;
         this.userMapper = userMapper;
+
     }
 
 
     @Override
-    public UserModel addUser(UserModel userModel) {
-        Boolean existEmail = userRepo.selectExistEmail(userModel.getEmail());
-        if (existEmail) {
-
+    public DataResult<UserModel> addUser(UserModel userModel) {
+        if (!userRepo.existsByUsername(userModel.getUsername())){
+            User user = userMapper.checkAndConvertToEntity(userModel);
+            userRepo.save(user);
+            return new SuccessDataResult<>(userModel,"Kullanıcı kayıt edildi");
         }
-        userRepo.save(userMapper.checkAndConvertToEntity(userModel));
-        return userModel;
+
+        return new ErrorDataResult<>(userModel,"Kullanıcı kayıt edilirken bir sorun ile karşılaşıldı");
+    }
+
+
+    @Override
+    public void addRoleToUser(String username, String name) {
+        User user = userRepo.findByUsername(username);
+
+
     }
 
     @Override
-    public UserModel deleteUser(String id) {
+    public DataResult<UserModel> deleteUser(String id) {
         return null;
     }
 
@@ -56,10 +66,27 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserModel findByEmail(String email) {
-        User user = userRepo.findByEmail(email);
-        UserModel userModel = userMapper.convertToDto(user);
-        return userModel;
+    public DataResult<UserModel> findByUsername(String username) {
+        User user = userRepo.findByUsername(username);
+        if (!(user ==null)){
+            UserModel userModel = userMapper.checkAndConvertToDto(user);
+            return new SuccessDataResult<>(userModel,"Kullanıcı bulundu");
+        }
+
+        return new ErrorDataResult<>("Kullanıcı bulunamadı");
     }
+
+
+    @Override
+    public DataResult<UserModel> findByEmail(String email) {
+        User user = userRepo.findByEmail(email);
+        if (!(user==null)){
+            UserModel userModel = userMapper.convertToDto(user);
+            return new SuccessDataResult<>(userModel,"Kullanıcı bulundu");
+        }
+
+        return new ErrorDataResult<>("Kullanıcı bulunamadı");
+    }
+
 
 }

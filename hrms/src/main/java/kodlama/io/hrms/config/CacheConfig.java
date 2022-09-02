@@ -1,9 +1,8 @@
-package kodlama.io.hrms.core.config;
+package kodlama.io.hrms.config;
 
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class MapperConfig {
-
+public class CacheConfig {
 
 }

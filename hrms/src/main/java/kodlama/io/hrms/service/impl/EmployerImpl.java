@@ -13,9 +13,7 @@ import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.core.utilities.results.SuccessDataResult;
 import kodlama.io.hrms.core.utilities.results.SuccessResult;
 import kodlama.io.hrms.repo.EmployerRepo;
-import kodlama.io.hrms.entities.concretes.Employer;
-
-import javax.annotation.Resource;
+import kodlama.io.hrms.entities.domain.Employer;
 
 @Service
 public class EmployerImpl implements EmployerService {

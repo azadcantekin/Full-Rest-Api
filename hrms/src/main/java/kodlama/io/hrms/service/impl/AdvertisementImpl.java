@@ -17,7 +17,7 @@ import kodlama.io.hrms.core.utilities.results.SuccessDataResult;
 import kodlama.io.hrms.core.utilities.results.SuccessResult;
 import kodlama.io.hrms.repo.AdvertisementRepo;
 
-import kodlama.io.hrms.entities.concretes.Advertisement;
+import kodlama.io.hrms.entities.domain.Advertisement;
 
 
 @Service

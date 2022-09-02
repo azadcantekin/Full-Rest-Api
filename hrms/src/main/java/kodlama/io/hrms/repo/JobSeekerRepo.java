@@ -2,8 +2,10 @@ package kodlama.io.hrms.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import kodlama.io.hrms.entities.concretes.JobSeeker;
+import kodlama.io.hrms.entities.domain.JobSeeker;
 
-public interface JobSeekerRepo extends JpaRepository<JobSeeker, Integer> {
+import java.util.UUID;
+
+public interface JobSeekerRepo extends JpaRepository<JobSeeker, UUID> {
 
 }

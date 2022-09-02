@@ -1,4 +1,4 @@
-package kodlama.io.hrms.entities.concretes;
+package kodlama.io.hrms.entities.domain;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;

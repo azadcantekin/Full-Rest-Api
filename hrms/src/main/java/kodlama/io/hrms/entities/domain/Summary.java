@@ -1,4 +1,4 @@
-package kodlama.io.hrms.entities.concretes;
+package kodlama.io.hrms.entities.domain;
 
 import lombok.*;
 
@@ -7,23 +7,20 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Table(name="social_media")
-@Entity
 @Data
+@Table(name = "summary")
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class SocialMedia extends EntityWithUUID{
+public class Summary extends EntityWithUUID {
 
-    private static final long serialVersionUID = 3093772082455027744L;
+    private static final long serialVersionUID = 8702116174178928842L;
 
-
-    private String mediaName;
-    private String uri;
+    private String title;
+    private String contents;
     @ManyToOne
     @JoinColumn(name="resume_id")
     private Resume resume;
-
-
 }

@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface ExperienceService {
 
+    ExperienceModel addExperience(ExperienceModel experienceModel);
     List<ExperienceModel> findAllByOrderByStartDateDesc();
 }

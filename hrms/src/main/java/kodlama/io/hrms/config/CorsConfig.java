@@ -1,4 +1,4 @@
-package kodlama.io.hrms.core.config;
+package kodlama.io.hrms.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

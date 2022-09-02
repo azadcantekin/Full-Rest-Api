@@ -1,6 +1,6 @@
 package kodlama.io.hrms.entities.dto;
 
-import kodlama.io.hrms.entities.concretes.Resume;
+import kodlama.io.hrms.entities.domain.Resume;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

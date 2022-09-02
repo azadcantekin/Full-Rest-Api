@@ -1,8 +1,8 @@
 package kodlama.io.hrms.entities.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import kodlama.io.hrms.entities.concretes.City;
-import kodlama.io.hrms.entities.concretes.Employer;
+import kodlama.io.hrms.entities.domain.City;
+import kodlama.io.hrms.entities.domain.Employer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

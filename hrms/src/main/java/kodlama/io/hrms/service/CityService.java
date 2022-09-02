@@ -1,6 +1,6 @@
 package kodlama.io.hrms.service;
 
-import kodlama.io.hrms.entities.concretes.City;
+import kodlama.io.hrms.entities.domain.City;
 
 import java.util.List;
 

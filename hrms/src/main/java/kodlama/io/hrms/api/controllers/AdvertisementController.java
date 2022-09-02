@@ -13,7 +13,7 @@ import kodlama.io.hrms.core.utilities.results.Result;
 
 
 @RestController
-@RequestMapping("advertisement")
+@RequestMapping("api/advertisement")
 public class AdvertisementController {
 
 	@Autowired

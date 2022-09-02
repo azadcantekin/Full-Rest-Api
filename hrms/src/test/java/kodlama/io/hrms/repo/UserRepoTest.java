@@ -1,6 +1,6 @@
 package kodlama.io.hrms.repo;
 
-import kodlama.io.hrms.entities.concretes.User;
+import kodlama.io.hrms.entities.domain.User;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

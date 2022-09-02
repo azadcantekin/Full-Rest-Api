@@ -1,6 +1,6 @@
 package kodlama.io.hrms.core.mapper;
 
-import kodlama.io.hrms.entities.concretes.EntityWithUUID;
+import kodlama.io.hrms.entities.domain.EntityWithUUID;
 
 
 public interface BaseMapper <E extends EntityWithUUID , DTO> {

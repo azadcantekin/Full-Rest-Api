@@ -1,6 +1,6 @@
 package kodlama.io.hrms.service.impl;
 
-import kodlama.io.hrms.entities.concretes.City;
+import kodlama.io.hrms.entities.domain.City;
 import kodlama.io.hrms.repo.CityRepo;
 import kodlama.io.hrms.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;

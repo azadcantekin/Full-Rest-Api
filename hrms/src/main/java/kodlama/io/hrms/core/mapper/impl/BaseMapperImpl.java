@@ -1,7 +1,7 @@
 package kodlama.io.hrms.core.mapper.impl;
 
 import kodlama.io.hrms.core.mapper.BaseMapper;
-import kodlama.io.hrms.entities.concretes.EntityWithUUID;
+import kodlama.io.hrms.entities.domain.EntityWithUUID;
 import kodlama.io.hrms.entities.dto.BaseDto;
 
 import java.util.UUID;

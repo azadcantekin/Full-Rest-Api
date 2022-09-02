@@ -1,8 +1,8 @@
 package kodlama.io.hrms.entities.dto;
 
 
-import kodlama.io.hrms.entities.concretes.Advertisement;
-import kodlama.io.hrms.entities.concretes.User;
+import kodlama.io.hrms.entities.domain.Advertisement;
+import kodlama.io.hrms.entities.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

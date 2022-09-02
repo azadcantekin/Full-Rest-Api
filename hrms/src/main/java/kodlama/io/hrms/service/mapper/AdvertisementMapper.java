@@ -2,7 +2,7 @@ package kodlama.io.hrms.service.mapper;
 
 
 import kodlama.io.hrms.core.mapper.impl.BaseMapperImpl;
-import kodlama.io.hrms.entities.concretes.Advertisement;
+import kodlama.io.hrms.entities.domain.Advertisement;
 import kodlama.io.hrms.entities.dto.AdvertisementModel;
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package kodlama.io.hrms.entities.concretes;
+package kodlama.io.hrms.entities.domain;
 
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.Type;

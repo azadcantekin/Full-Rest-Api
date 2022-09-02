@@ -1,6 +1,6 @@
 package kodlama.io.hrms.repo;
 
-import kodlama.io.hrms.entities.concretes.Experience;
+import kodlama.io.hrms.entities.domain.Experience;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

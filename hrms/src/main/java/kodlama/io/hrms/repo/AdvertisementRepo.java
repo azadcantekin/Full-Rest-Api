@@ -7,7 +7,7 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-import kodlama.io.hrms.entities.concretes.Advertisement;
+import kodlama.io.hrms.entities.domain.Advertisement;
 import org.springframework.data.jpa.repository.Query;
 
 
