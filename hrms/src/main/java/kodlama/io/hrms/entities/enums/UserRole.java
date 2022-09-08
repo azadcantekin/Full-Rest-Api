@@ -1,7 +1,9 @@
 package kodlama.io.hrms.entities.enums;
 
 
-public enum UserRole {
+import org.springframework.security.core.GrantedAuthority;
+
+public enum UserRole implements GrantedAuthority {
 
     ADMIN,
     EMPLOYEE,
@@ -9,6 +11,8 @@ public enum UserRole {
     EMPLOYER;
 
 
-
-
+    @Override
+    public String getAuthority() {
+        return name();
+    }
 }

@@ -10,11 +10,11 @@ import java.util.List;
 public interface UserService {
     List<UserModel> getAllUser();
 
-    DataResult<UserModel> findByUsername(String username);
+    String addUser(UserModel userModel);
 
-    DataResult<UserModel> addUser(UserModel userModel);
+    String signIn(String email , String password);
 
-    void addRoleToUser(String userName, String name);
+    String refresh(String email);
 
     DataResult<UserModel> deleteUser(String id);
 

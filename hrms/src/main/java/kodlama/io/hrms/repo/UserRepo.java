@@ -8,8 +8,6 @@ import java.util.UUID;
 
 public interface UserRepo extends JpaRepository<User, UUID> {
 
-    boolean existsByUsername(String username);
-    User findByUsername(String username);
     User findByEmail (String email);
     @Query("SELECT CASE WHEN COUNT(u) > 0 THEN TRUE ELSE FALSE END FROM User u WHERE u.email =?1")
     Boolean selectExistEmail(String email);

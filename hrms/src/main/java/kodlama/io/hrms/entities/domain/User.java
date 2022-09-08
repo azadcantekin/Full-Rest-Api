@@ -1,7 +1,6 @@
 package kodlama.io.hrms.entities.domain;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import javax.persistence.*;
 
@@ -23,13 +22,10 @@ import lombok.experimental.SuperBuilder;
 public class User extends EntityWithUUID {
 
     private static final long serialVersionUID = -5007611868455170026L;
-    @Column(unique = true, nullable = false)
-    private String username;
-    @Column(unique = true, nullable = false)
     private String email;
     private String password;
     @ElementCollection(fetch = FetchType.EAGER)
-    private List<UserRole> roles = new ArrayList<>();
+    List<UserRole> roles = new ArrayList<>();
     @OneToMany
     private List<Employer> employers;
     @OneToMany

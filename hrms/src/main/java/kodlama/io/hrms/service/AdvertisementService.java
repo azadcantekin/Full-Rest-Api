@@ -11,9 +11,9 @@ public interface AdvertisementService {
 
     Result addAdvertisement(AdvertisementModel advertisementModel);
     DataResult<List<AdvertisementModel>> getAll();
-    List<AdvertisementModel> findAllByActiveTrue();
-    List<AdvertisementModel> findAllByActiveTrueOrderByLastApplicationDate();
-    AdvertisementModel updateIsActive(String id , boolean active) throws Exception;
-    List<AdvertisementModel> findAllByCompanyName(String companyName);
+    DataResult<List<AdvertisementModel>> findAllByActiveTrue();
+    DataResult<List<AdvertisementModel>> findAllByActiveTrueOrderByLastApplicationDate();
+    DataResult<AdvertisementModel> updateIsActive(String id , boolean active) throws Exception;
+    DataResult<List<AdvertisementModel>> findAllByCompanyName(String companyName);
 
 }

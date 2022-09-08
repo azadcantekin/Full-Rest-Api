@@ -5,16 +5,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import kodlama.io.hrms.core.utilities.results.*;
 import kodlama.io.hrms.service.mapper.AdvertisementMapper;
 import kodlama.io.hrms.entities.dto.AdvertisementModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlama.io.hrms.service.AdvertisementService;
-import kodlama.io.hrms.core.utilities.results.DataResult;
-import kodlama.io.hrms.core.utilities.results.Result;
-import kodlama.io.hrms.core.utilities.results.SuccessDataResult;
-import kodlama.io.hrms.core.utilities.results.SuccessResult;
 import kodlama.io.hrms.repo.AdvertisementRepo;
 
 import kodlama.io.hrms.entities.domain.Advertisement;
@@ -44,7 +41,7 @@ public class AdvertisementImpl implements AdvertisementService {
 
     @Override
     public DataResult<List<AdvertisementModel>> getAll() {
-        List<Advertisement> advertisementList = this.advertisementRepo.findAll();
+        List<Advertisement> advertisementList = advertisementRepo.findAll();
         List<AdvertisementModel> advertisementModelList = new ArrayList<>();
         for (Advertisement advertisement : advertisementList) {
             advertisementModelList.add(advertisementMapper.checkAndConvertToDto(advertisement));
@@ -55,46 +52,47 @@ public class AdvertisementImpl implements AdvertisementService {
 
 
     @Override
-    public List<AdvertisementModel> findAllByActiveTrue() {
+    public DataResult<List<AdvertisementModel>> findAllByActiveTrue() {
         List<Advertisement> advertisementList = advertisementRepo.findAllByActiveTrue();
         List<AdvertisementModel> advertisementModelList = new ArrayList<>();
         for (Advertisement advertisement : advertisementList) {
             advertisementModelList.add(advertisementMapper.checkAndConvertToDto(advertisement));
         }
-        return advertisementModelList;
+        return new SuccessDataResult<>(advertisementModelList);
     }
 
     @Override
-    public List<AdvertisementModel> findAllByActiveTrueOrderByLastApplicationDate() {
+    public DataResult<List<AdvertisementModel>> findAllByActiveTrueOrderByLastApplicationDate() {
         List<Advertisement> advertisementList = advertisementRepo.findAllByActiveTrueOrderByLastApplicationDate();
         List<AdvertisementModel> advertisementModelList = new ArrayList<>();
         for (Advertisement advertisement : advertisementList) {
             advertisementModelList.add(advertisementMapper.checkAndConvertToDto(advertisement));
         }
-        return advertisementModelList;
+        return new SuccessDataResult<>(advertisementModelList);
     }
 
     @Override
-    public AdvertisementModel updateIsActive(String id, boolean active) throws Exception {
+    public DataResult<AdvertisementModel> updateIsActive(String id, boolean active) throws Exception {
         Optional<Advertisement> advertisementOptional = Optional.of(advertisementRepo.findById(UUID.fromString(id)).orElse(null));
         if (!advertisementOptional.isPresent()) {
             throw new Exception();
         }
         Advertisement advertisement = advertisementOptional.get();
         advertisement.setActive(active);
-        this.advertisementRepo.save(advertisement);
-        return advertisementMapper.checkAndConvertToDto(advertisement);
+        advertisementRepo.save(advertisement);
+        AdvertisementModel advertisementModel = advertisementMapper.checkAndConvertToDto(advertisement);
+        return new SuccessDataResult<>(advertisementModel);
     }
 
     @Override
-    public List<AdvertisementModel> findAllByCompanyName(String companyName) {
+    public DataResult<List<AdvertisementModel>> findAllByCompanyName(String companyName) {
         List<Advertisement> advertisementList = advertisementRepo.findAllByCompanyName(companyName);
         List<AdvertisementModel> advertisementModelList = new ArrayList<>();
         for (Advertisement advertisement : advertisementList
         ) {
             advertisementModelList.add(advertisementMapper.checkAndConvertToDto(advertisement));
         }
-        return advertisementModelList;
+        return new SuccessDataResult<>(advertisementModelList);
     }
 }
 
