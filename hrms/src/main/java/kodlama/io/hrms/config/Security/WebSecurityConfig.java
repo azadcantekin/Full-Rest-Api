@@ -46,12 +46,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.csrf().disable();
-
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
-        http.authorizeRequests()//
-                .antMatchers("api/user/signin").permitAll()//
-                .antMatchers("api/user/sign-up").permitAll()//
+        http.authorizeRequests()
+                .antMatchers("/api/user/sign-in").permitAll()
+                .antMatchers("/api/user/sign-up").permitAll()
                 .anyRequest().authenticated();
 
         // http.exceptionHandling().accessDeniedPage("/login");
